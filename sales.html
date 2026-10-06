@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaSaaS Sales — Track deals, revenue pipelines, and sales performance in real time.">
+  <title>Sales — NovaSaaS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">N</div>
+        <span class="sidebar-brand">NovaSaaS</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Main</div>
+        <a href="dashboard.html" class="nav-item" id="navDashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a href="sales.html" class="nav-item active" id="navSales">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Sales
+        </a>
+        <a href="#" class="nav-item" id="navAnalytics">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Analytics
+          <span class="nav-badge">New</span>
+        </a>
+        <a href="#" class="nav-item" id="navCustomers">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Customers
+        </a>
+
+        <div class="nav-section-title">Tools</div>
+        <a href="#" class="nav-item" id="navReports">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Reports
+        </a>
+        <a href="#" class="nav-item" id="navSettings">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebarUser">
+          <div class="sidebar-user-avatar">JD</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name">John Doe</div>
+            <div class="sidebar-user-email">john@novasaas.com</div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted)"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN AREA ===== -->
+    <div class="main-wrapper">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-icon-btn mobile-menu-btn" id="menuToggle" onclick="toggleSidebar()" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="topbar-title">
+            <h1>Sales</h1>
+            <p>Track your deals and revenue pipeline</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search sales..." id="salesSearch">
+          </div>
+          <button class="topbar-icon-btn" id="notifBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot"></span>
+          </button>
+          <button class="topbar-icon-btn" id="logoutBtn" onclick="handleLogout()" title="Logout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+
+        <!-- Sales Stat Cards -->
+        <div class="stats-grid">
+          <div class="stat-card animate-fade-in-up animate-delay-1">
+            <div class="stat-card-top">
+              <div class="stat-icon purple">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <span class="stat-trend up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                +31.2%
+              </span>
+            </div>
+            <div class="stat-value">$124,500</div>
+            <div class="stat-label">Total Sales</div>
+          </div>
+
+          <div class="stat-card animate-fade-in-up animate-delay-2">
+            <div class="stat-card-top">
+              <div class="stat-icon green">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span class="stat-trend up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                +18.5%
+              </span>
+            </div>
+            <div class="stat-value">284</div>
+            <div class="stat-label">Closed Deals</div>
+          </div>
+
+          <div class="stat-card animate-fade-in-up animate-delay-3">
+            <div class="stat-card-top">
+              <div class="stat-icon blue">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <span class="stat-trend up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                +9.1%
+              </span>
+            </div>
+            <div class="stat-value">92%</div>
+            <div class="stat-label">Satisfaction Rate</div>
+          </div>
+
+          <div class="stat-card animate-fade-in-up animate-delay-4">
+            <div class="stat-card-top">
+              <div class="stat-icon orange">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+              <span class="stat-trend down">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+                -2.4%
+              </span>
+            </div>
+            <div class="stat-value">$438</div>
+            <div class="stat-label">Avg. Deal Size</div>
+          </div>
+        </div>
+
+        <!-- Sales Chart + Pipeline -->
+        <div class="grid-2-1 animate-fade-in-up animate-delay-5">
+          <!-- Sales Performance Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Sales Performance</div>
+                <div class="card-subtitle">Deals closed vs. target this quarter</div>
+              </div>
+              <div class="tabs">
+                <button class="tab-btn active" onclick="switchSalesTab(this, 'quarterly')">Quarterly</button>
+                <button class="tab-btn" onclick="switchSalesTab(this, 'yearly')">Yearly</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Pipeline -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Deal Pipeline</div>
+                <div class="card-subtitle">Current quarter stages</div>
+              </div>
+            </div>
+            <div class="pipeline" id="pipeline"></div>
+          </div>
+        </div>
+
+        <!-- Sales Table -->
+        <div class="card animate-fade-in-up animate-delay-6" style="margin-top:20px">
+          <div class="card-header">
+            <div>
+              <div class="card-title">All Deals</div>
+              <div class="card-subtitle">Complete list of recent deals</div>
+            </div>
+            <div class="page-header-actions">
+              <div class="tabs" id="dealFilterTabs">
+                <button class="tab-btn active" onclick="filterDeals(this, 'all')">All</button>
+                <button class="tab-btn" onclick="filterDeals(this, 'won')">Won</button>
+                <button class="tab-btn" onclick="filterDeals(this, 'pending')">Pending</button>
+                <button class="tab-btn" onclick="filterDeals(this, 'lost')">Lost</button>
+              </div>
+              <button class="btn btn-primary btn-sm" id="exportBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export
+              </button>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table id="dealsTable">
+              <thead>
+                <tr>
+                  <th>Deal Name</th>
+                  <th>Customer</th>
+                  <th>Amount</th>
+                  <th>Stage</th>
+                  <th>Status</th>
+                  <th>Close Date</th>
+                  <th>Rep</th>
+                </tr>
+              </thead>
+              <tbody id="dealsTableBody">
+                <!-- filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <style>
+    /* Pipeline styles */
+    .pipeline-stage {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .pipeline-stage:last-child { margin-bottom: 0; }
+    .pipeline-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .pipeline-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .pipeline-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .pipeline-count {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .pipeline-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-link);
+    }
+    /* Deal row avatar */
+    .deal-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+  </style>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initSalesPage();
+      handleResponsiveMenu();
+    });
+    window.addEventListener('resize', handleResponsiveMenu);
+
+    function handleResponsiveMenu() {
+      const btn = document.getElementById('menuToggle');
+      btn.style.display = window.innerWidth <= 1024 ? 'flex' : 'none';
+    }
+
+    function initSalesPage() {
+      renderSalesChart();
+      renderPipeline();
+      renderDealsTable();
+    }
+
+    // ===== SALES CHART =====
+    let salesChartInstance = null;
+    function renderSalesChart(type = 'quarterly') {
+      const ctx = document.getElementById('salesChart').getContext('2d');
+      if (salesChartInstance) salesChartInstance.destroy();
+
+      const labels = type === 'quarterly'
+        ? ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct']
+        : ['2020','2021','2022','2023','2024','2025','2026'];
+
+      const actual = type === 'quarterly'
+        ? [8200, 9400, 7800, 11200, 10600, 12800, 11400, 14200, 13600, 15800]
+        : [42000, 58000, 72000, 84000, 96000, 108000, 124500];
+
+      const target = type === 'quarterly'
+        ? [10000, 10000, 10000, 12000, 12000, 12000, 14000, 14000, 14000, 16000]
+        : [50000, 60000, 75000, 90000, 100000, 115000, 130000];
+
+      const gradient = ctx.createLinearGradient(0, 0, 0, 280);
+      gradient.addColorStop(0, 'rgba(124, 58, 237, 0.2)');
+      gradient.addColorStop(1, 'rgba(124, 58, 237, 0)');
+
+      salesChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Actual',
+              data: actual,
+              backgroundColor: 'rgba(124, 58, 237, 0.7)',
+              borderRadius: 6,
+              borderSkipped: false,
+              barPercentage: 0.6,
+              categoryPercentage: 0.7,
+            },
+            {
+              label: 'Target',
+              data: target,
+              backgroundColor: 'rgba(99, 102, 241, 0.2)',
+              borderColor: 'rgba(99, 102, 241, 0.4)',
+              borderWidth: 1,
+              borderRadius: 6,
+              borderSkipped: false,
+              barPercentage: 0.6,
+              categoryPercentage: 0.7,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+              align: 'end',
+              labels: {
+                color: '#9ca3c0',
+                font: { size: 12 },
+                boxWidth: 12,
+                boxHeight: 12,
+                borderRadius: 3,
+                useBorderRadius: true,
+                padding: 16,
+              }
+            },
+            tooltip: {
+              backgroundColor: '#1e1b4b',
+              titleColor: '#f0f0f8',
+              bodyColor: '#9ca3c0',
+              borderColor: 'rgba(124,58,237,0.3)',
+              borderWidth: 1,
+              cornerRadius: 8,
+              padding: 12,
+              callbacks: {
+                label: ctx => `${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString()}`
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#5d6280', font: { size: 12 } }
+            },
+            y: {
+              grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+              ticks: {
+                color: '#5d6280',
+                font: { size: 12 },
+                callback: v => '$' + (v / 1000) + 'k'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function switchSalesTab(btn, type) {
+      btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderSalesChart(type);
+    }
+
+    // ===== PIPELINE =====
+    function renderPipeline() {
+      const stages = [
+        { name: 'Lead', count: 48, value: '$86,400', pct: 100, color: '#6366f1' },
+        { name: 'Qualified', count: 32, value: '$64,000', pct: 67, color: '#7c3aed' },
+        { name: 'Proposal', count: 18, value: '$45,000', pct: 38, color: '#a855f7' },
+        { name: 'Negotiation', count: 12, value: '$36,000', pct: 25, color: '#c084fc' },
+        { name: 'Closed Won', count: 8, value: '$28,800', pct: 17, color: '#22c55e' },
+      ];
+
+      const container = document.getElementById('pipeline');
+      container.innerHTML = stages.map(s => `
+        <div class="pipeline-stage">
+          <div class="pipeline-info">
+            <div class="pipeline-label">
+              <span class="pipeline-name">${s.name}</span>
+              <span class="pipeline-count">${s.count} deals · <span class="pipeline-value">${s.value}</span></span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:0%;background:${s.color}" data-width="${s.pct}"></div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Animate progress bars
+      setTimeout(() => {
+        container.querySelectorAll('.progress-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+      }, 300);
+    }
+
+    // ===== DEALS TABLE =====
+    const allDeals = [
+      { name: 'Enterprise Suite', customer: 'Acme Corp', amount: 24500, stage: 'Closed Won', status: 'won', date: 'Oct 05, 2026', rep: 'Alice', color: '#7c3aed' },
+      { name: 'Pro Plan Annual', customer: 'Globex Inc', amount: 12800, stage: 'Negotiation', status: 'pending', date: 'Oct 04, 2026', rep: 'Bob', color: '#6366f1' },
+      { name: 'Starter Package', customer: 'Wayne Enterprises', amount: 4200, stage: 'Closed Won', status: 'won', date: 'Oct 03, 2026', rep: 'Carol', color: '#a855f7' },
+      { name: 'Custom Integration', customer: 'Stark Industries', amount: 38000, stage: 'Proposal', status: 'pending', date: 'Oct 02, 2026', rep: 'Dave', color: '#22c55e' },
+      { name: 'Team Plan', customer: 'Oscorp', amount: 8600, stage: 'Lost', status: 'lost', date: 'Oct 01, 2026', rep: 'Eve', color: '#ef4444' },
+      { name: 'Growth Bundle', customer: 'Umbrella Corp', amount: 15200, stage: 'Closed Won', status: 'won', date: 'Sep 30, 2026', rep: 'Alice', color: '#7c3aed' },
+      { name: 'API Access', customer: 'Cyberdyne Systems', amount: 6800, stage: 'Qualified', status: 'pending', date: 'Sep 29, 2026', rep: 'Bob', color: '#6366f1' },
+      { name: 'White Label', customer: 'Wonka Industries', amount: 42000, stage: 'Closed Won', status: 'won', date: 'Sep 28, 2026', rep: 'Carol', color: '#a855f7' },
+      { name: 'Data Migration', customer: 'Initech', amount: 9400, stage: 'Lost', status: 'lost', date: 'Sep 27, 2026', rep: 'Dave', color: '#22c55e' },
+      { name: 'Premium Support', customer: 'Soylent Corp', amount: 3200, stage: 'Negotiation', status: 'pending', date: 'Sep 26, 2026', rep: 'Eve', color: '#ef4444' },
+    ];
+
+    function renderDealsTable(filter = 'all') {
+      const filtered = filter === 'all' ? allDeals : allDeals.filter(d => d.status === filter);
+      const tbody = document.getElementById('dealsTableBody');
+
+      tbody.innerHTML = filtered.map(d => {
+        const statusMap = {
+          won: 'success',
+          pending: 'warning',
+          lost: 'danger'
+        };
+        const statusLabel = {
+          won: 'Won',
+          pending: 'In Progress',
+          lost: 'Lost'
+        };
+        const initials = d.rep.slice(0, 2).toUpperCase();
+        return `
+          <tr>
+            <td><strong>${d.name}</strong></td>
+            <td>${d.customer}</td>
+            <td>$${d.amount.toLocaleString()}</td>
+            <td><span class="badge info"><span class="badge-dot"></span>${d.stage}</span></td>
+            <td><span class="badge ${statusMap[d.status]}"><span class="badge-dot"></span>${statusLabel[d.status]}</span></td>
+            <td>${d.date}</td>
+            <td>
+              <span class="deal-avatar" style="background:${d.color}">${initials}</span>
+              ${d.rep}
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-muted)">No deals found</td></tr>`;
+      }
+    }
+
+    function filterDeals(btn, filter) {
+      btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderDealsTable(filter);
+    }
+  </script>
+</body>
+</html>
